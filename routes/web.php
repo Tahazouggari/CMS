@@ -24,6 +24,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cms/edit/{page}', [PageController::class, 'edit'])->name('pages.edit');
     Route::put('/cms/update/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::delete('/cms/delete/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+  
 });
 
 Route::get('/page/{slug}', [PageController::class, 'show'])->name('pages.show');
+
+Route::get('/guide', function () {
+    return view('guide.howToUse');
+})->name('guide.howToUse');

@@ -27,8 +27,8 @@
                     <td class="border border-gray-300 p-2 text-center">
                         <!-- View Button -->
                         <a href="{{ route('pages.show', $page->slug) }}"
-                           class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
-                            👁 View
+                           class="px-3 py-1 bg-blue-500 text-black rounded hover:bg-blue-600">
+                            View
                         </a>
 
                         <!-- Edit Button -->
@@ -42,7 +42,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                    class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                                    class="px-3 py-1 bg-red-500 text-black rounded hover:bg-red-600"
                                     onclick="return confirm('Are you sure you want to delete this page?');">
                                 🗑 Delete
                             </button>

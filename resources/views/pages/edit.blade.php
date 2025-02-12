@@ -21,13 +21,13 @@
             <!-- Buttons -->
             <div class="mt-6 flex items-center justify-between">
                 <button type="submit"
-                        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-                    ✅ Update Page
+                        class="px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition">
+                    Update Page
                 </button>
 
                 <a href="{{ route('pages.index') }}"
                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
-                    ⬅ Back to CMS
+                    Back to CMS
                 </a>
             </div>
         </form>

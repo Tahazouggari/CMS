@@ -5,6 +5,11 @@
         </h2>
         
     </x-slot>
-    <h1 aria-sort="ascending" >Welcome monsieur Taha</h1>
-   
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <a href="{{ route('pages.index') }}">Manage Pages</a>
+
+    </button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <a href="{{ route('guide.howToUse') }}"> Learn how to Use </a>
+    </button>
 </x-app-layout>
