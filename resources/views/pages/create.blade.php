@@ -22,8 +22,8 @@
             <!-- Buttons -->
             <div class="mt-6 flex items-center justify-between">
                 <button type="submit"
-                        class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition">
-                    ✅ Create Page
+                        class="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-600 transition">
+                    Create Page
                 </button>
 
                 <a href="{{ route('pages.index') }}"
