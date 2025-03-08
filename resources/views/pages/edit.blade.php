@@ -4,44 +4,98 @@
             {{ __('Edit Page') }}
         </h2>
     </x-slot>
-    
-    <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
-        <form action="{{ route('pages.update', $page) }}" method="POST">
-            @csrf
-            @method('PUT')
 
-            <!-- Title Input -->
-            <label class="block text-lg font-semibold">Title:</label>
-            <input type="text" name="title" value="{{ $page->title }}" class="w-full border p-2 rounded mt-1" required>
+    <div class="flex">
+        <!-- Sidebar with Draggable Images -->
+        <div class="w-20 bg-gray-900 p-4 rounded-xl shadow-lg flex flex-col items-center gap-4">
+            <p class="text-white text-sm font-semibold">Drag & Drop</p>
+            <div class="space-y-4">
+                <img src="https://s.hs-data.com/bilder/spieler/gross/13029.jpg" 
+                     class="draggable fixed-size-image cursor-pointer" 
+                     draggable="true" 
+                     data-url="https://s.hs-data.com/bilder/spieler/gross/13029.jpg">
 
-            <!-- Content Input with TinyMCE -->
-            <label class="block mt-4 text-lg font-semibold">Content:</label>
-            <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1">{{ $page->content }}</textarea>
+                <img src="{{ asset('images/PICTOGRAMMES FONTAWESOME/book-open-reader.png') }}" 
+                     class="draggable fixed-size-image cursor-pointer" 
+                     draggable="true" 
+                     data-url="{{ asset('images/PICTOGRAMMES FONTAWESOME/book-open-reader.png') }}">
 
-            <!-- Buttons -->
-            <div class="mt-6 flex items-center justify-between">
-                <button type="submit"
-                        class="px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition">
-                    Update Page
-                </button>
-
-                <a href="{{ route('pages.index') }}"
-                   class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
-                    Back to CMS
-                </a>
+                <img src="https://via.placeholder.com/100/00ff00" 
+                     class="draggable fixed-size-image cursor-pointer" 
+                     draggable="true" 
+                     data-url="https://via.placeholder.com/100/00ff00">
             </div>
-        </form>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-full max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
+            <form action="{{ route('pages.update', $page) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <!-- Title Input -->
+                <label class="block text-lg font-semibold">Title:</label>
+                <input type="text" name="title" value="{{ $page->title }}" class="w-full border p-2 rounded mt-1" required>
+
+                <!-- Content Input with TinyMCE -->
+                <label class="block mt-4 text-lg font-semibold">Content:</label>
+                <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1">{{ $page->content }}</textarea>
+
+                <!-- Buttons -->
+                <div class="mt-6 flex items-center justify-between">
+                    <button type="submit"
+                            class="px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition">
+                        Update Page
+                    </button>
+
+                    <a href="{{ route('pages.index') }}"
+                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
+                        Back to CMS
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- TinyMCE Script -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script><script src="https://cdn.tiny.cloud/1/c2rvwzuv2g1h71xkg4jk4aud468n3cmkelgz5013srfrdqo7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script >
-    tinymce.init({
+    <script src="https://cdn.tiny.cloud/1/c2rvwzuv2g1h71xkg4jk4aud468n3cmkelgz5013srfrdqo7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    <script>
+        // Initialize TinyMCE
+        tinymce.init({
             selector: '#editor',
-            height: 400,
+            height: 900,
             plugins: 'advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
             toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help | fontsizeselect forecolor backcolor',
             branding: false
         });
+
+        // Drag and drop images
+        document.querySelectorAll('.draggable').forEach(img => {
+            img.addEventListener('dragstart', function (event) {
+                event.dataTransfer.setData('text/plain', event.target.dataset.url);
+            });
+        });
+
+        document.getElementById('editor').addEventListener('drop', function (event) {
+            event.preventDefault();
+            let imageUrl = event.dataTransfer.getData('text/plain');
+            tinymce.activeEditor.execCommand('mceInsertContent', false, `<img src="${imageUrl}" alt="Dropped Image" width="150">`);
+        });
+
+        document.getElementById('editor').addEventListener('dragover', function (event) {
+            event.preventDefault();
+        });
     </script>
+
+    <style>
+        .fixed-size-image {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
 </x-app-layout>
