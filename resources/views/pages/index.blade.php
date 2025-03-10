@@ -34,7 +34,7 @@
                         <!-- Edit Button -->
                         <a href="{{ route('pages.edit', $page) }}"
                            class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 ml-2">
-                            ✏ Edit
+                             Edit
                         </a>
 
                         <!-- Delete Button -->
@@ -44,7 +44,7 @@
                             <button type="submit"
                                     class="px-3 py-1 bg-red-500 text-black rounded hover:bg-red-600"
                                     onclick="return confirm('Are you sure you want to delete this page?');">
-                                🗑 Delete
+                                 Delete
                             </button>
                         </form>
                     </td>
