@@ -182,16 +182,23 @@
                 <!-- Content Input with TinyMCE -->
                 <label class="block mt-4 text-lg font-semibold">Content:</label>
                 <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1">
-                    @if(request()->query('template') == 'blog')
-                        <h2>Blog Title</h2>
-                        <p>Write your blog content here...</p>
-                    @elseif(request()->query('template') == 'portfolio')
-                        <h2>Portfolio Showcase</h2>
-                        <p>Highlight your best work here...</p>
-                    @elseif(request()->query('template') == 'landing')
-                        <h2>Welcome to Our Landing Page</h2>
-                        <p>Call-to-action goes here...</p>
-                    @endif
+                @if(request()->query('template') == 'business')
+                    @include('templates.business')
+                @elseif(request()->query('template') == 'blog')
+                    @include('templates.blog')
+                @elseif(request()->query('template') == 'portfolio')
+                    @include('templates.portfolio')
+                @elseif(request()->query('template') == 'agency')
+                    @include('templates.agency')
+                @elseif(request()->query('template') == 'startup')
+                    @include('templates.startup')
+                @elseif(request()->query('template') == 'personal')
+                    @include('templates.personal')
+                @elseif(request()->query('template') == 'ecommerce')
+                    @include('templates.ecommerce')
+                @else
+                    <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1"></textarea>
+                @endif
                 </textarea>
 
                 <!-- Buttons -->

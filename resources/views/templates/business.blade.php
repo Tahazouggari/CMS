@@ -1,6 +1,10 @@
-@extends('layouts.app')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Business Page') }}
+        </h2>
+    </x-slot>
 
-@section('content')
 <!-- Hero Section -->
 <section class="relative w-full bg-cover bg-center h-[500px]" style="background-image: url('{{ asset('images/hero-banner.jpg') }}');">
     <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -98,4 +102,4 @@
 <footer class="py-10 bg-gray-800 text-white text-center">
     <p>&copy; 2025 SF Potentiel. Tous droits réservés.</p>
 </footer>
-@endsection
+</x-app-layout>
