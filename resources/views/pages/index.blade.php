@@ -8,7 +8,7 @@
     <div class="max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
         <!-- Create New Page Button -->
         <div class="mb-4">
-            <a href="{{ route('pages.create') }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+            <a href="{{ route('pages.chooseType') }}" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
                 ➕ Create New Page
             </a>
         </div>

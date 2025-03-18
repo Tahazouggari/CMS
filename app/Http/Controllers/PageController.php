@@ -15,24 +15,40 @@ class PageController extends Controller
         return view('pages.index', compact('pages'));
     }
 
-    // Show create page form
-    public function create()
+    // ✅ Show page selection form (Start from scratch or choose a template)
+    public function chooseType()
     {
-        return view('pages.create');
+        return view('pages.choose_type');
     }
 
-    // Store new page in the database
+    // ✅ Show template selection page
+    public function selectTemplate()
+    {
+        $templates = ['business', 'blog', 'portfolio', 'landing'];
+        return view('pages.select_template', compact('templates'));
+    }
+
+    // ✅ Show create page form (Handles optional template parameter)
+    public function create(Request $request)
+    {
+        $template = $request->query('template', 'default'); // Default is blank
+        return view('pages.create', compact('template'));
+    }
+
+    // ✅ Store new page in the database
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
+            'template' => 'nullable|string|max:50'
         ]);
 
         Page::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'content' => $request->content,
+            'template' => $request->template ?? 'default',
         ]);
 
         return redirect()->route('pages.index')->with('success', 'Page created successfully.');
@@ -74,4 +90,15 @@ class PageController extends Controller
         $page = Page::where('slug', $slug)->firstOrFail();
         return view('pages.show', compact('page'));
     }
+
+    public function showTemplate($template)
+{
+    // Check if template exists
+    if (!view()->exists("templates.$template")) {
+        abort(404, "Template not found");
+    }
+
+    return view("templates.$template");
+}
+
 }

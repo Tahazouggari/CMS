@@ -167,28 +167,40 @@
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="w-full max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
+         <!-- Main Content -->
+         <div class="w-full max-w-7xl mx-auto p-6 bg-white shadow-md rounded-lg">
             <form action="{{ route('pages.store') }}" method="POST">
                 @csrf
 
+                <!-- Hidden template input -->
+                <input type="hidden" name="template" value="{{ request()->query('template', 'default') }}">
+
                 <!-- Title Input -->
                 <label class="block text-lg font-semibold">Title:</label>
-                <input type="text" name="title" class="w-full border p-2 rounded mt-1" placeholder="Enter page title" required>
+                <input type="text" name="title" class="w-full border p-2 rounded mt-1" required>
 
                 <!-- Content Input with TinyMCE -->
                 <label class="block mt-4 text-lg font-semibold">Content:</label>
-                <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1"></textarea>
+                <textarea id="editor" name="content" class="w-full border p-2 rounded mt-1">
+                    @if(request()->query('template') == 'blog')
+                        <h2>Blog Title</h2>
+                        <p>Write your blog content here...</p>
+                    @elseif(request()->query('template') == 'portfolio')
+                        <h2>Portfolio Showcase</h2>
+                        <p>Highlight your best work here...</p>
+                    @elseif(request()->query('template') == 'landing')
+                        <h2>Welcome to Our Landing Page</h2>
+                        <p>Call-to-action goes here...</p>
+                    @endif
+                </textarea>
 
                 <!-- Buttons -->
                 <div class="mt-6 flex items-center justify-between">
-                    <button type="submit"
-                            class="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-600 transition">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
                         Create Page
                     </button>
 
-                    <a href="{{ route('pages.index') }}"
-                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
+                    <a href="{{ route('pages.index') }}" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
                         Back to CMS
                     </a>
                 </div>
