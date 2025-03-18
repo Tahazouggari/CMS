@@ -54,6 +54,17 @@ class PageController extends Controller
         return redirect()->route('pages.index')->with('success', 'Page created successfully.');
     }
 
+    public function preview($template)
+    {
+        $availableTemplates = ['business', 'agency', 'startup', 'personal', 'landing'];
+
+        if (!in_array($template, $availableTemplates)) {
+            abort(404, "Template not found");
+        }
+
+        return view("templates.$template");
+    }
+
     // Show edit form
     public function edit(Page $page)
     {
