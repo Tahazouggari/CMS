@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/cms/update/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::delete('/cms/delete/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
 
-    Route::get('/preview/{template}', [PageController::class, 'preview'])->name('pages.preview');
+    Route::get('/pages/preview/{template}', [PageController::class, 'preview'])->name('pages.preview');
 });
 
 // View pages

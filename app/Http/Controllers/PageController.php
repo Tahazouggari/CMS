@@ -55,15 +55,17 @@ class PageController extends Controller
     }
 
     public function preview($template)
-    {
-        $availableTemplates = ['business', 'agency', 'startup', 'personal', 'landing'];
-
-        if (!in_array($template, $availableTemplates)) {
-            abort(404, "Template not found");
-        }
-
-        return view("templates.$template");
+{
+    // Check if the template exists in the views directory
+    $availableTemplates = ['blog', 'landing', 'portfolio'];
+    
+    if (!in_array($template, $availableTemplates)) {
+        abort(404); // Return 404 if the template is not found
     }
+
+    return view("templates.$template"); // Renders the correct template
+}
+
 
     // Show edit form
     public function edit(Page $page)
