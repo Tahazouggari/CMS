@@ -8,34 +8,29 @@ use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
-    // Show list of pages
     public function index()
     {
         $pages = Page::all();
         return view('pages.index', compact('pages'));
     }
 
-    // ✅ Show page selection form (Start from scratch or choose a template)
     public function chooseType()
     {
         return view('pages.choose_type');
     }
 
-    // ✅ Show template selection page
     public function selectTemplate()
     {
         $templates = ['business', 'blog', 'portfolio', 'landing'];
         return view('pages.select_template', compact('templates'));
     }
 
-    // ✅ Show create page form (Handles optional template parameter)
     public function create(Request $request)
     {
         $template = $request->query('template', 'default'); // Default is blank
         return view('pages.create', compact('template'));
     }
 
-    // ✅ Store new page in the database
     public function store(Request $request)
     {
         $request->validate([
@@ -56,24 +51,21 @@ class PageController extends Controller
 
     public function preview($template)
 {
-    // Check if the template exists in the views directory
     $availableTemplates = ['blog', 'landing', 'portfolio'];
     
     if (!in_array($template, $availableTemplates)) {
-        abort(404); // Return 404 if the template is not found
+        abort(404);
     }
 
-    return view("templates.$template"); // Renders the correct template
+    return view("templates.$template");
 }
 
 
-    // Show edit form
     public function edit(Page $page)
     {
         return view('pages.edit', compact('page'));
     }
 
-    // Update page
     public function update(Request $request, Page $page)
     {
         $request->validate([
@@ -90,14 +82,12 @@ class PageController extends Controller
         return redirect()->route('pages.index')->with('success', 'Page updated successfully.');
     }
 
-    // Delete a page
     public function destroy(Page $page)
     {
         $page->delete();
         return redirect()->route('pages.index')->with('success', 'Page deleted successfully.');
     }
 
-    // Display a specific page
     public function show($slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
@@ -106,7 +96,6 @@ class PageController extends Controller
 
     public function showTemplate($template)
 {
-    // Check if template exists
     if (!view()->exists("templates.$template")) {
         abort(404, "Template not found");
     }

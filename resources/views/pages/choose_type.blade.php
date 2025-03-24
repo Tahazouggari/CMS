@@ -12,13 +12,13 @@
             <!-- Start from Scratch -->
             <a href="{{ route('pages.create') }}" 
                 class="w-1/2 text-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                📝 Start from Scratch
+                 Start from Scratch
             </a>
 
             <!-- Choose a Template -->
             <a href="{{ route('pages.selectTemplate') }}" 
                class="w-1/2 text-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
-                🎨 Choose a Template
+                 Choose a Template
             </a>
         </div>
     </div>

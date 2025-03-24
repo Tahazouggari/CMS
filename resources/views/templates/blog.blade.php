@@ -18,7 +18,7 @@
             <div class="p-6 bg-gray-100 shadow-md rounded-lg">
                 <h3 class="text-xl font-bold">SEO Best Practices</h3>
                 <p class="mt-2 text-gray-600">Improve your site's ranking with these tips.</p>
-                <a href="#" class="text-blue-500">Read More →</a>
+                <a href="#" class="text-blue-500">Read More </a>
             </div>
         </div>
     </div>

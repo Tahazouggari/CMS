@@ -11,7 +11,7 @@
             <!-- Manage Pages Card -->
             <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 text-center">
                 <div class="text-blue-500 text-4xl">
-                    📄
+                    
                 </div>
                 <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-4">
                     Manage Pages
@@ -28,7 +28,7 @@
             <!-- Guide / How to Use Card -->
             <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 text-center">
                 <div class="text-green-500 text-4xl">
-                    📘
+                    
                 </div>
                 <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-4">
                     How to Use
@@ -45,7 +45,7 @@
             <!-- Settings Card -->
             <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 text-center">
                 <div class="text-yellow-500 text-4xl">
-                    ⚙️
+                    
                 </div>
                 <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-4">
                     Settings
