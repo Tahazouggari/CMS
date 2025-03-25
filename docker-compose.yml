@@ -6,8 +6,6 @@ services:
     container_name: CMSEnsi
     ports:
       - "8081:8000"
-    #volumes:
-    #  - ./.env:/var/www/.env
     depends_on:
       - db
     environment:
@@ -17,16 +15,15 @@ services:
       - DB_DATABASE=my_laravel_app
       - DB_USERNAME=root
       - DB_PASSWORD=root
-      command: >
+    command: >
       sh -c "
         until nc -z db 3306; do
-          echo ' Waiting for MySQL...';
+          echo '⏳ Waiting for MySQL...';
           sleep 2;
         done &&
         php artisan migrate &&
         php artisan serve --host=0.0.0.0 --port=8000
       "
-    
 
   db:
     image: mysql:8.0
