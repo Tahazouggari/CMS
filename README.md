@@ -18,7 +18,10 @@ cd CMS/
 sudo docker-compose up -d
 ```
 
-Then go to your browser and open: localhost:8081/
+Then go to your browser and open: 
+```bash
+localhost:8081/
+```
 
 #### How to close CMS:
 
