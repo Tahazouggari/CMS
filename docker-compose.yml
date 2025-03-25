@@ -17,11 +17,7 @@ services:
       - DB_DATABASE=my_laravel_app
       - DB_USERNAME=root
       - DB_PASSWORD=root
-    command: >
-      sh -c "
-        php artisan migrate --force &&
-        php artisan serve --host=0.0.0.0 --port=8000
-      "
+    
 
   db:
     image: mysql:8.0
