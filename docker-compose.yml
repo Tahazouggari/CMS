@@ -17,6 +17,7 @@ services:
       - DB_DATABASE=my_laravel_app
       - DB_USERNAME=root
       - DB_PASSWORD=root
+      command: >
       sh -c "
         until nc -z db 3306; do
           echo ' Waiting for MySQL...';
