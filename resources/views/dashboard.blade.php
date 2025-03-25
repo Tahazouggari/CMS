@@ -42,23 +42,7 @@
                 </a>
             </div>
 
-            <!-- Settings Card -->
-            <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 text-center">
-                <div class="text-yellow-500 text-4xl">
-                    
-                </div>
-                <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-4">
-                    Settings
-                </h3>
-                <p class="text-gray-500 dark:text-gray-400 mt-2">
-                    Adjust your preferences and configurations.
-                </p>
-                <a href="#" 
-                    class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold text-lg py-4 px-6 rounded-xl transition">
-                    Open Settings
-                </a>
-            </div>
-
+           
         </div>
     </div>
 
