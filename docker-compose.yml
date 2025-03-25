@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: ghcr.io/Tahazouggari/cmsensi:latest
+    image: ghcr.io/tahazouggari/cmsensi:latest
     container_name: CMSEnsi
     ports:
       - "8081:8000"
