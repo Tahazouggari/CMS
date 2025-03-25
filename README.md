@@ -1,6 +1,16 @@
+# Project 2A - CMS
 
-# CMS
-Ce projet vise à développer un CMS éducatif conçu pour des utilisateurs non-informaticiens, permettant de créer et gérer des pages web tout en expliquant les étapes d’accession à un serveur (serveur web, nom de domaine, etc.).
+This project is part of the 2A curriculum and focuses on building a Content Management System (CMS). The objective is to simplify the creation of web pages and educate users on managing digital content efficiently.
+
+## Professor
+- **Morgan Barbier**: morgan.barbier@unicaen.fr
+
+## Contributors
+
+### Students
+- **ZOUGGARI Taha**: taha.zouggari@ensicaen.fr
+- **Toujani Mohammed**: mohammed.toujani@ensicaen.fr
+- **ZAKRI Hamza**: hamza.zakri@ensicaen.fr
 
 ### How to run
 
