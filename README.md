@@ -15,7 +15,8 @@ sudo apt install docker.io
 ```bash
 git clone https://github.com/Tahazouggari/CMS.git
 cd CMS/
-sudo docker-compose up -d
+docker compose up
+
 ```
 
 Then go to your browser and open: 
